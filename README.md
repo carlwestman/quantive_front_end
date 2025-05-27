@@ -1,54 +1,101 @@
-# React + TypeScript + Vite
+# Quantive - Investment Research Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Quantive is a React-based application designed to organize and perform investment research. It allows users to create research projects, manage sources, engage in AI-driven chats, and generate reports.
 
-Currently, two official plugins are available:
+## Features
+- **Research Projects**: Create and manage research projects connected to one or more companies
+- **Sources Management**: Upload and organize documents (PDF, Word, Excel, etc.)
+- **AI-Powered Chats**: Interact with AI agents for research assistance
+- **Report Generation**: Store and display research reports
+- **Dynamic UI**: Collapsible left menu with project navigation
+- **Modern Interface**: Built with Joy UI and Tailwind CSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **Framework**: React with TypeScript
+- **Build Tool**: Vite
+- **UI Components**: Joy UI (@mui/joy)
+- **Icons**: Material Icons (@mui/icons-material)
+- **AI Integration**: Assistant UI (@assistant-ui/react)
+- **Styling**: Tailwind CSS
+- **Code Quality**: ESLint, TypeScript
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
+- Node.js (v16 or later)
+- npm (v7 or later)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd quantive_front_end
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+The application will be available at http://localhost:5173
+
+## Project Structure
+```
+src/
+  ├── components/          # Reusable components
+  │   ├── assistant-ui/   # AI-related components
+  │   └── ui/             # Common UI components
+  ├── lib/                # Utilities and helpers
+  ├── App.tsx            # Main application component
+  ├── main.tsx           # Application entry point
+  └── index.css          # Global styles
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Key Components
+- `App.tsx`: Main application layout with collapsible menu and content area
+- `components/assistant-ui/`: AI chat and interaction components
+- `components/ui/`: Shared UI components like buttons and tooltips
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Development Guide
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### Adding a New Feature
+1. Create any necessary components in `src/components/`
+2. Update the main App.tsx if needed
+3. Style using Tailwind CSS classes or Joy UI's sx prop
+4. Test the changes using `npm run dev`
+
+### Styling Guidelines
+- Use Joy UI components for consistent styling
+- Utilize Tailwind CSS for custom styles
+- Follow the existing layout patterns for consistency
+
+### Current Status
+- Basic layout and navigation implemented
+- Research project list with selection
+- Tab-based content areas (Chats, Reports, Sources)
+- Collapsible left menu
+
+### Next Steps
+- [ ] Implement file upload for Sources
+- [ ] Add AI chat functionality
+- [ ] Create report generation interface
+- [ ] Add company management
+- [ ] Implement project creation/editing
+- [ ] Add backend integration
+
+## Troubleshooting
+- **PostCSS Issues**: Ensure postcss.config.cjs is properly configured
+- **Tailwind Not Working**: Check tailwind.config.js content paths
+- **Type Errors**: Verify tsconfig files and types are correctly set up
+
+## Contributing
+1. Create a feature branch
+2. Make your changes
+3. Test thoroughly
+4. Submit a pull request
 ```
